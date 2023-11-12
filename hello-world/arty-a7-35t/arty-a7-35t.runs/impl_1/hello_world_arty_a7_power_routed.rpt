@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date             : Sat Nov 11 23:14:12 2023
+| Date             : Sun Nov 12 14:51:44 2023
 | Host             : CAK-M3NSK32-556 running 64-bit major release  (build 9200)
 | Command          : report_power -file hello_world_arty_a7_power_routed.rpt -pb hello_world_arty_a7_power_summary_routed.pb -rpx hello_world_arty_a7_power_routed.rpx
 | Design           : hello_world_arty_a7
@@ -52,14 +52,14 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.002 |        4 |       --- |             --- |
-| Slice Logic    |    <0.001 |     4179 |       --- |             --- |
+| Clocks         |     0.003 |        4 |       --- |             --- |
+| Slice Logic    |    <0.001 |     4176 |       --- |             --- |
 |   LUT as Logic |    <0.001 |     1998 |     20800 |            9.61 |
 |   CARRY4       |    <0.001 |      115 |      8150 |            1.41 |
 |   Register     |    <0.001 |     1536 |     41600 |            3.69 |
 |   F7/F8 Muxes  |    <0.001 |      319 |     32600 |            0.98 |
 |   Others       |     0.000 |       10 |       --- |             --- |
-| Signals        |     0.002 |     3348 |       --- |             --- |
+| Signals        |     0.001 |     3334 |       --- |             --- |
 | Block RAM      |     0.002 |        2 |        50 |            4.00 |
 | I/O            |    <0.001 |        4 |       210 |            1.90 |
 | Static Power   |     0.059 |          |           |                 |
@@ -144,10 +144,10 @@ Table of Contents
 | Name                      | Power (W) |
 +---------------------------+-----------+
 | hello_world_arty_a7       |     0.007 |
-|   rvsteel_soc_instance    |     0.006 |
+|   rvsteel_soc_instance    |     0.007 |
 |     bus_mux_instance      |     0.001 |
 |     ram_instance          |     0.002 |
-|     rvsteel_core_instance |     0.003 |
+|     rvsteel_core_instance |     0.004 |
 +---------------------------+-----------+
 
 

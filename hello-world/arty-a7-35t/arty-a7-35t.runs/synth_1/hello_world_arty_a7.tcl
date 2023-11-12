@@ -70,6 +70,11 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_msg_config  -id {Synth 8-7080}  -suppress 
+set_msg_config  -id {Power 33-332}  -suppress 
+set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hello-world\arty-a7\hello-world-arty-a7.v:]}}  -suppress 
+set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hardware\ram.v:]}}  -suppress 
+set_msg_config  -id {Synth 8-11581}  -string {{WARNING: [Synth 8-11581] system task call 'finish' not supported [C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/ram.v:69]}}  -suppress 
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35ticsg324-1L
 
@@ -106,6 +111,8 @@ read_xdc C:/Users/rafcal0v/riscv-steel-tests/hello-world/arty-a7-35t/arty-a7-35t
 set_property used_in_implementation false [get_files C:/Users/rafcal0v/riscv-steel-tests/hello-world/arty-a7-35t/arty-a7-35t.srcs/constrs_1/new/hello-world-arty-a7-35t-constraints.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Users/rafcal0v/riscv-steel-tests/hello-world/arty-a7-35t/arty-a7-35t.srcs/utils_1/imports/synth_1/hello_world_arty_a7.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

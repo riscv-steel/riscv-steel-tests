@@ -117,6 +117,9 @@ OPTRACE "impl_1" END { }
 
 set_msg_config  -id {Synth 8-7080}  -suppress 
 set_msg_config  -id {Power 33-332}  -suppress 
+set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hello-world\arty-a7\hello-world-arty-a7.v:]}}  -suppress 
+set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hardware\ram.v:]}}  -suppress 
+set_msg_config  -id {Synth 8-11581}  -string {{WARNING: [Synth 8-11581] system task call 'finish' not supported [C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/ram.v:69]}}  -suppress 
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }

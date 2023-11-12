@@ -74,6 +74,9 @@ set_param chipscope.maxJobs 4
 set_param xicom.use_bs_reader 1
 set_msg_config  -id {Synth 8-7080}  -suppress 
 set_msg_config  -id {Power 33-332}  -suppress 
+set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hello-world\arty-a7\hello-world-arty-a7.v:]}}  -suppress 
+set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hardware\ram.v:]}}  -suppress 
+set_msg_config  -id {Synth 8-11581}  -string {{WARNING: [Synth 8-11581] system task call 'finish' not supported [C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/ram.v:69]}}  -suppress 
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100ticsg324-1L
 
@@ -110,6 +113,8 @@ read_xdc C:/Users/rafcal0v/riscv-steel-tests/hello-world/arty-a7-100t/arty-a7-10
 set_property used_in_implementation false [get_files C:/Users/rafcal0v/riscv-steel-tests/hello-world/arty-a7-100t/arty-a7-100t.srcs/constrs_1/new/hello-world-arty-a7-100t-constraints.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Users/rafcal0v/riscv-steel-tests/hello-world/arty-a7-100t/arty-a7-100t.srcs/utils_1/imports/synth_1/hello_world_arty_a7.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
