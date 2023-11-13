@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Sun Nov 12 15:07:11 2023
+| Date         : Mon Nov 13 23:20:02 2023
 | Host         : CAK-M3NSK32-556 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file hello_world_cmod_a7_control_sets_placed.rpt
 | Design       : hello_world_cmod_a7
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |    50 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    53 |
+| Unused register locations in slices containing registers |    46 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              17 |           11 |
+| No           | No                    | No                     |              16 |           10 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             139 |           48 |
-| Yes          | No                    | No                     |               9 |            4 |
+| No           | Yes                   | No                     |             139 |           53 |
+| Yes          | No                    | No                     |               9 |            3 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |            1366 |          629 |
+| Yes          | Yes                   | No                     |            1366 |          633 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,56 +73,56 @@ Table of Contents
 +------------------+-----------------------------------------------------------------------+-------------------------------------------------------------------+------------------+----------------+--------------+
 |   Clock Signal   |                             Enable Signal                             |                          Set/Reset Signal                         | Slice Load Count | Bel Load Count | Bels / Slice |
 +------------------+-----------------------------------------------------------------------+-------------------------------------------------------------------+------------------+----------------+--------------+
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_mem_write_request_reg_6[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                3 |              5 |         1.67 |
-|  clock_IBUF_BUFG |                                                                       | rvsteel_soc_instance/rvsteel_core_instance/reset_reg_reg_2[0]     |                2 |              8 |         4.00 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/uart_instance/p_0_in_0                           | rvsteel_soc_instance/uart_instance/rx_register[7]_i_1_n_0         |                3 |              8 |         2.67 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/uart_instance/E[0]                               | rvsteel_soc_instance/rvsteel_core_instance/p_0_in                 |                1 |              8 |         8.00 |
-|  clock_IBUF_BUFG |                                                                       | rvsteel_soc_instance/rvsteel_core_instance/p_0_in                 |                4 |              9 |         2.25 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/rvsteel_core_instance/SR[0]                      |                                                                   |                4 |              9 |         2.25 |
-|  clock_IBUF_BUFG |                                                                       | rvsteel_soc_instance/rvsteel_core_instance/SR[0]                  |                3 |             11 |         3.67 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_mem_write_request_reg_5[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                3 |              5 |         1.67 |
+|  clock_IBUF_BUFG |                                                                       | rvsteel_soc_instance/rvsteel_core_instance/reset_reg_reg_1[0]     |                2 |              8 |         4.00 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/uart_instance/E[0]                               | rvsteel_soc_instance/rvsteel_core_instance/reset_internal_0       |                1 |              8 |         8.00 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/uart_instance/p_0_in_0                           | rvsteel_soc_instance/uart_instance/rx_register[7]_i_1_n_0         |                2 |              8 |         4.00 |
+|  clock_IBUF_BUFG |                                                                       | rvsteel_soc_instance/rvsteel_core_instance/reset_internal_0       |                5 |              9 |         1.80 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/rvsteel_core_instance/SR[0]                      |                                                                   |                3 |              9 |         3.00 |
+|  clock_IBUF_BUFG |                                                                       | rvsteel_soc_instance/rvsteel_core_instance/SR[0]                  |                5 |             11 |         2.20 |
 |  clock_IBUF_BUFG |                                                                       | rvsteel_soc_instance/uart_instance/rx_cycle_counter[0]_i_1_n_0    |                3 |             12 |         4.00 |
-|  clock_IBUF_BUFG |                                                                       |                                                                   |               11 |             17 |         1.55 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_mem_write_request_reg_6[0] | rvsteel_soc_instance/rvsteel_core_instance/csr_mcause[30]_i_1_n_0 |               18 |             27 |         1.50 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_mem_write_request_reg_4[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             30 |         2.73 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/E[0]                            | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               16 |             31 |         1.94 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/current_state_reg[3][0]         | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             31 |         2.82 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10]_1[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             32 |         2.91 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[11]_2[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               15 |             32 |         2.13 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10]_7[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               16 |             32 |         2.00 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10]_3[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10]_4[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               19 |             32 |         1.68 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10]_9[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10]_0[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               10 |             32 |         3.20 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[7]_0[0]    | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               16 |             32 |         2.00 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[11][0]     | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               18 |             32 |         1.78 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[11]_1[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               12 |             32 |         2.67 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[11]_0[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               17 |             32 |         1.88 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[7][0]      | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10][0]     | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             32 |         2.91 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[11]_4[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[11]_6[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               16 |             32 |         2.00 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[11]_5[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               17 |             32 |         1.88 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[9]_1[0]    | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               20 |             32 |         1.60 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[9]_3[0]    | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               22 |             32 |         1.45 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10]_2[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               15 |             32 |         2.13 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_mem_write_request_reg_5[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                8 |             32 |         4.00 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[9][0]      | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               24 |             32 |         1.33 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[9]_2[0]    | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             32 |         2.91 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10]_6[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               15 |             32 |         2.13 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[9]_4[0]    | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               22 |             32 |         1.45 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[8]_0[0]    | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               12 |             32 |         2.67 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[8]_1[0]    | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[9]_0[0]    | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               19 |             32 |         1.68 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/reset_reg_reg_0                 | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               21 |             32 |         1.52 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10]_5[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                9 |             32 |         3.56 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/current_state_reg[3]_0[0]       | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               15 |             32 |         2.13 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10]_10[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               14 |             32 |         2.29 |
+|  clock_IBUF_BUFG |                                                                       |                                                                   |               10 |             16 |         1.60 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_mem_write_request_reg_5[0] | rvsteel_soc_instance/rvsteel_core_instance/csr_mcause[30]_i_1_n_0 |               14 |             27 |         1.93 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_mem_write_request_reg_3[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               12 |             30 |         2.50 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/E[0]                            | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               15 |             31 |         2.07 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/current_state_reg[3][0]         | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               14 |             31 |         2.21 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_57[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_50[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               14 |             32 |         2.29 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_52[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_60[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               17 |             32 |         1.88 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_35[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                9 |             32 |         3.56 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_34[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_51[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               10 |             32 |         3.20 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_36[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             32 |         2.91 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_39[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               19 |             32 |         1.68 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_48[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               20 |             32 |         1.60 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_55[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_61[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               19 |             32 |         1.68 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_54[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               20 |             32 |         1.60 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_40[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               21 |             32 |         1.52 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_43[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               14 |             32 |         2.29 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_46[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               12 |             32 |         2.67 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_42[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               16 |             32 |         2.00 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_62[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               21 |             32 |         1.52 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_38[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               16 |             32 |         2.00 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_53[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               18 |             32 |         1.78 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_58[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               12 |             32 |         2.67 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_37[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               10 |             32 |         3.20 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_44[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                9 |             32 |         3.56 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_49[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               15 |             32 |         2.13 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_41[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               15 |             32 |         2.13 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_56[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               17 |             32 |         1.88 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_59[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               14 |             32 |         2.29 |
 |  clock_IBUF_BUFG | rvsteel_soc_instance/rvsteel_core_instance/csr_minstret[31]_i_1_n_0   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                8 |             32 |         4.00 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[11]_3[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             32 |         2.91 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[10]_8[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               17 |             32 |         1.88 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[8][0]      | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                8 |             32 |         4.00 |
-|  clock_IBUF_BUFG |                                                                       | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               36 |             99 |         2.75 |
-|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_mem_write_request_reg[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               52 |            106 |         2.04 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[7][0]      | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               15 |             32 |         2.13 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_47[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               18 |             32 |         1.78 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_instruction_reg[7]_0[0]    | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               19 |             32 |         1.68 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/reset_reg_reg_0                 | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               22 |             32 |         1.45 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/prev_mem_write_request_reg_4[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                8 |             32 |         4.00 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/current_state_reg[3]_0[0]       | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               12 |             32 |         2.67 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/selected_response_reg[2]_45[0]  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
+|  clock_IBUF_BUFG |                                                                       | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               38 |             99 |         2.61 |
+|  clock_IBUF_BUFG | rvsteel_soc_instance/bus_mux_instance/clock_enable                    | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               56 |            106 |         1.89 |
 +------------------+-----------------------------------------------------------------------+-------------------------------------------------------------------+------------------+----------------+--------------+
 
 

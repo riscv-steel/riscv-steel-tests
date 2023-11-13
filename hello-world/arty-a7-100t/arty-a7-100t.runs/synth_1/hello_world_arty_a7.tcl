@@ -72,6 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config  -id {Synth 8-7080}  -suppress 
 set_msg_config  -id {Power 33-332}  -suppress 
 set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hello-world\arty-a7\hello-world-arty-a7.v:]}}  -suppress 

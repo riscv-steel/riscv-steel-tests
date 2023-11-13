@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2023.2
-| Date         : Sun Nov 12 15:07:04 2023
+| Date         : Mon Nov 13 23:19:56 2023
 | Host         : CAK-M3NSK32-556
 | Design       : design_1
 | Device       : xc7a35t-cpg236-1--
