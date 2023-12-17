@@ -115,12 +115,18 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config  -id {Synth 8-7080}  -suppress 
+set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/software/build/hello-world.hex'.}}  -suppress 
+set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/rvsteel-core.v'.}}  -suppress 
+set_msg_config  -id {Board 49-26}  -suppress 
 set_msg_config  -id {Power 33-332}  -suppress 
 set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hello-world\arty-a7\hello-world-arty-a7.v:]}}  -suppress 
 set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hardware\ram.v:]}}  -suppress 
 set_msg_config  -id {Synth 8-11581}  -string {{WARNING: [Synth 8-11581] system task call 'finish' not supported [C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/ram.v:69]}}  -suppress 
+set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/ram-memory.v'.}}  -suppress 
+set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/rvsteel-soc.v'.}}  -suppress 
+set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/system-bus.v'.}}  -suppress 
+set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/uart.v'.}}  -suppress 
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -129,7 +135,6 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 4
-  set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 16  }
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a100ticsg324-1L

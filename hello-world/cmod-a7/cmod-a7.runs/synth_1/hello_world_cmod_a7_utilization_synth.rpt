@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Mon Nov 13 23:19:20 2023
+| Date         : Sat Dec 16 22:33:55 2023
 | Host         : CAK-M3NSK32-556 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file hello_world_cmod_a7_utilization_synth.rpt -pb hello_world_cmod_a7_utilization_synth.pb
 | Design       : hello_world_cmod_a7
@@ -153,13 +153,13 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     | 1524 |        Flop & Latch |
-| LUT6     | 1197 |                 LUT |
-| LUT5     |  468 |                 LUT |
+| LUT6     | 1213 |                 LUT |
+| LUT5     |  462 |                 LUT |
 | MUXF7    |  319 |               MuxFx |
-| LUT4     |  288 |                 LUT |
-| LUT3     |  251 |                 LUT |
+| LUT4     |  283 |                 LUT |
+| LUT3     |  245 |                 LUT |
 | CARRY4   |  110 |          CarryLogic |
-| LUT2     |   42 |                 LUT |
+| LUT2     |   45 |                 LUT |
 | FDSE     |    6 |        Flop & Latch |
 | LUT1     |    3 |                 LUT |
 | IBUF     |    3 |                  IO |

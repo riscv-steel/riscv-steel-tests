@@ -39,15 +39,18 @@ module rvsteel_core_unit_tests();
 
   reg clock;
   reg reset;
+  
+  reg read_response_test;
+  reg write_response_test;  
 
-  wire   [31:0]  mem_address;
-  wire   [31:0]  mem_read_data;
-  wire           mem_read_request;
-  wire           mem_read_request_ack;
-  wire   [31:0]  mem_write_data;
-  wire   [3:0 ]  mem_write_strobe;
-  wire           mem_write_request;
-  wire           mem_write_request_ack;
+  wire   [31:0]  rw_address;
+  wire   [31:0]  read_data;
+  wire           read_request;
+  wire           read_response;
+  wire   [31:0]  write_data;
+  wire   [3:0 ]  write_strobe;
+  wire           write_request;
+  wire           write_response;
   
   rvsteel_core
   dut0 (
@@ -57,25 +60,27 @@ module rvsteel_core_unit_tests();
     .clock                        (clock                        ),
     .reset                        (reset                        ),
   
-    // Interface with Memory
+    // IO interface
   
-    .mem_address                  (mem_address                 ),
-    .mem_read_data                (mem_read_data               ),
-    .mem_read_request             (mem_read_request            ),
-    .mem_read_request_ack         (mem_read_request_ack        ),
-    .mem_write_data               (mem_write_data              ),
-    .mem_write_strobe             (mem_write_strobe            ),
-    .mem_write_request            (mem_write_request           ),
-    .mem_write_request_ack        (mem_write_request_ack       ),
+    .rw_address                   (rw_address                   ),
+    .read_data                    (read_data                    ),
+    .read_request                 (read_request                 ),
+    .read_response                (read_response &
+                                   read_response_test           ),
+    .write_data                   (write_data                   ),
+    .write_strobe                 (write_strobe                 ),
+    .write_request                (write_request                ),
+    .write_response               (write_response &
+                                   write_response_test          ),
   
     // Interrupt signals (hardwire inputs to zero if unused)
   
     .irq_external                 (1'b0),
-    .irq_external_ack             (),
+    .irq_external_response             (),
     .irq_timer                    (1'b0),
-    .irq_timer_ack                (),
+    .irq_timer_response                (),
     .irq_software                 (1'b0),  
-    .irq_software_ack             (),
+    .irq_software_response             (),
   
     // Real Time Clock (hardwire to zero if unused)
   
@@ -83,7 +88,7 @@ module rvsteel_core_unit_tests();
 
   );
   
-  ram #(
+  ram_memory #(
     
     .MEMORY_SIZE                  (2097152                      )
   
@@ -94,16 +99,16 @@ module rvsteel_core_unit_tests();
     .clock                        (clock                        ),
     .reset                        (reset                        ),
     
-    // Memory Interface
+    // IO interface
   
-    .mem_address                  (mem_address                 ),
-    .mem_read_data                (mem_read_data               ),
-    .mem_read_request             (mem_read_request            ),
-    .mem_read_request_ack         (mem_read_request_ack        ),
-    .mem_write_data               (mem_write_data              ),
-    .mem_write_strobe             (mem_write_strobe            ),
-    .mem_write_request            (mem_write_request           ),
-    .mem_write_request_ack        (mem_write_request_ack       )    
+    .rw_address                   (rw_address                   ),
+    .read_data                    (read_data                    ),
+    .read_request                 (read_request                 ),
+    .read_response                (read_response                ),
+    .write_data                   (write_data                   ),
+    .write_strobe                 (write_strobe                 ),
+    .write_request                (write_request                ),
+    .write_response               (write_response               )    
 
   );
   
@@ -205,10 +210,27 @@ module rvsteel_core_unit_tests();
     "xori-01.reference.mem"
   };
   
-  integer     i, j, k, m, n, z;
+  integer     i, j, k, m, n, t, z;
   integer     failing_tests_counter;
   integer     current_test_failed_flag;
   reg [31:0]  current_golden_reference [0:2047];
+ 
+  always begin
+    
+    read_response_test = 1'b1;
+    write_response_test = 1'b1;
+    #200;
+    
+    for (t = 0; t < 10000; t=t+1) begin
+      read_response_test = $random();
+      write_response_test = $random();
+      #20;
+    end
+    
+    read_response_test = 1'b1;
+    write_response_test = 1'b1;
+    
+  end
  
   initial begin
     
@@ -244,9 +266,9 @@ module rvsteel_core_unit_tests();
         // After each clock cycle it tests whether the test program finished its execution
         // This event is signaled by writing 1 to the address 0x00001000
         #20;        
-        if(mem_address == 32'h00001000 &&
-           mem_write_request == 1'b1 &&
-           mem_write_data == 32'h00000001) begin
+        if(rw_address == 32'h00001000 &&
+           write_request == 1'b1 &&
+           write_data == 32'h00000001) begin
            
           // The beginning and end of signature are stored at
           // 0x00001ffc (ram[2046]) and 0x00001ff8 (ram[2047]).

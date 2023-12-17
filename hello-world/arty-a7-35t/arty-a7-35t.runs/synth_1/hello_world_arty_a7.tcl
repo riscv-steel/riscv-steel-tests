@@ -71,13 +71,12 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
-set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config  -id {Synth 8-7080}  -suppress 
+set_msg_config  -id {Board 49-26}  -suppress 
 set_msg_config  -id {Power 33-332}  -suppress 
 set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hello-world\arty-a7\hello-world-arty-a7.v:]}}  -suppress 
 set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hardware\ram.v:]}}  -suppress 
 set_msg_config  -id {Synth 8-11581}  -string {{WARNING: [Synth 8-11581] system task call 'finish' not supported [C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/ram.v:69]}}  -suppress 
+set_msg_config  -id {Common 17-180}  -suppress 
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35ticsg324-1L
 
@@ -92,13 +91,13 @@ set_property ip_output_repo c:/Users/rafcal0v/riscv-steel-tests/hello-world/arty
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_mem C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/software/build/hello-world.mem
+read_mem C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hello-world/software/build/hello-world.hex
 read_verilog -library xil_defaultlib {
-  C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/bus-mux.v
-  C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/ram.v
-  C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/rvsteel-core.v
-  C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/rvsteel-soc.v
-  C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/uart.v
+  C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/ip/ram-memory.v
+  C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/ip/rvsteel-core.v
+  C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/ip/rvsteel-soc.v
+  C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/ip/system-bus.v
+  C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/ip/uart.v
   C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hello-world/arty-a7/hello-world-arty-a7.v
 }
 OPTRACE "Adding files" END { }
