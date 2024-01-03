@@ -39,6 +39,7 @@ module rvsteel_core_unit_tests();
 
   reg clock;
   reg reset;
+  reg halt;
   
   reg read_response_test;
   reg write_response_test;  
@@ -59,6 +60,7 @@ module rvsteel_core_unit_tests();
   
     .clock                        (clock                        ),
     .reset                        (reset                        ),
+    .halt                         (halt                         ),
   
     // IO interface
   
@@ -210,7 +212,7 @@ module rvsteel_core_unit_tests();
     "xori-01.reference.mem"
   };
   
-  integer     i, j, k, m, n, t, z;
+  integer     i, j, k, m, n, t, u, z;
   integer     failing_tests_counter;
   integer     current_test_failed_flag;
   reg [31:0]  current_golden_reference [0:2047];
@@ -229,6 +231,20 @@ module rvsteel_core_unit_tests();
     
     read_response_test = 1'b1;
     write_response_test = 1'b1;
+    
+  end
+  
+  always begin
+    
+    halt = 1'b0;
+    #1000;
+    
+    for (u = 0; u < 10000; u=u+1) begin
+      halt = $random();
+      #20;
+    end
+    
+    halt = 1'b0;
     
   end
  

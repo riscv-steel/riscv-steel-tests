@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/ip/ram-memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ram_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/ip/rvsteel-core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rvsteel_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rafcal0v/riscv-steel-tests/unit-tests/rvsteel-core-unit-tests.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rvsteel_core_unit_tests

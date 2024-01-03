@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Sat Dec 16 22:33:55 2023
+| Date         : Mon Jan  1 22:12:25 2024
 | Host         : CAK-M3NSK32-556 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file hello_world_cmod_a7_utilization_synth.rpt -pb hello_world_cmod_a7_utilization_synth.pb
 | Design       : hello_world_cmod_a7
@@ -31,11 +31,11 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             | 2065 |     0 |          0 |     20800 |  9.93 |
-|   LUT as Logic          | 2065 |     0 |          0 |     20800 |  9.93 |
+| Slice LUTs*             | 2082 |     0 |          0 |     20800 | 10.01 |
+|   LUT as Logic          | 2082 |     0 |          0 |     20800 | 10.01 |
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
-| Slice Registers         | 1530 |     0 |          0 |     41600 |  3.68 |
-|   Register as Flip Flop | 1530 |     0 |          0 |     41600 |  3.68 |
+| Slice Registers         | 1532 |     0 |          0 |     41600 |  3.68 |
+|   Register as Flip Flop | 1532 |     0 |          0 |     41600 |  3.68 |
 |   Register as Latch     |    0 |     0 |          0 |     41600 |  0.00 |
 | F7 Muxes                |  319 |     0 |          0 |     16300 |  1.96 |
 | F8 Muxes                |    0 |     0 |          0 |      8150 |  0.00 |
@@ -59,7 +59,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 6     |          Yes |         Set |            - |
-| 1524  |          Yes |       Reset |            - |
+| 1526  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -93,7 +93,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |    4 |     0 |          0 |       106 |  3.77 |
+| Bonded IOB                  |    5 |     0 |          0 |       106 |  4.72 |
 | Bonded IPADs                |    0 |     0 |          0 |        10 |  0.00 |
 | Bonded OPADs                |    0 |     0 |          0 |         4 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         5 |  0.00 |
@@ -152,17 +152,17 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 1524 |        Flop & Latch |
-| LUT6     | 1213 |                 LUT |
-| LUT5     |  462 |                 LUT |
+| FDRE     | 1526 |        Flop & Latch |
+| LUT6     | 1205 |                 LUT |
+| LUT5     |  491 |                 LUT |
 | MUXF7    |  319 |               MuxFx |
-| LUT4     |  283 |                 LUT |
-| LUT3     |  245 |                 LUT |
+| LUT4     |  271 |                 LUT |
+| LUT3     |  241 |                 LUT |
 | CARRY4   |  110 |          CarryLogic |
-| LUT2     |   45 |                 LUT |
+| LUT2     |   59 |                 LUT |
 | FDSE     |    6 |        Flop & Latch |
+| IBUF     |    4 |                  IO |
 | LUT1     |    3 |                 LUT |
-| IBUF     |    3 |                  IO |
 | RAMB36E1 |    2 |        Block Memory |
 | OBUF     |    1 |                  IO |
 | BUFG     |    1 |               Clock |

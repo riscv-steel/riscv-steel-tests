@@ -71,12 +71,15 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
-set_param xicom.use_bs_reader 1
 set_msg_config  -id {Synth 8-7080}  -suppress 
 set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/software/build/hello-world.hex'.}}  -suppress 
 set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/rvsteel-core.v'.}}  -suppress 
 set_msg_config  -id {Board 49-26}  -suppress 
 set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hello-world/demo-software/build/hello-world.hex'.}}  -suppress 
+set_msg_config  -id {Netlist 29-101}  -suppress 
+set_msg_config  -id {Vivado 12-1017}  -suppress 
+set_msg_config  -id {Common 17-180}  -suppress 
+set_msg_config  -id {filemgmt 56-199}  -suppress 
 set_msg_config  -id {Power 33-332}  -suppress 
 set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hello-world\arty-a7\hello-world-arty-a7.v:]}}  -suppress 
 set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hardware\ram.v:]}}  -suppress 
@@ -117,12 +120,10 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/rafcal0v/riscv-steel-tests/hello-world/cmod-a7/cmod-a7.srcs/constrs_1/new/hello-world-cmod-a7-constraints.xdc
-set_property used_in_implementation false [get_files C:/Users/rafcal0v/riscv-steel-tests/hello-world/cmod-a7/cmod-a7.srcs/constrs_1/new/hello-world-cmod-a7-constraints.xdc]
+read_xdc C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hello-world/cmod-a7/hello-world-cmod-a7-constraints.xdc
+set_property used_in_implementation false [get_files C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hello-world/cmod-a7/hello-world-cmod-a7-constraints.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
-
-read_checkpoint -auto_incremental -incremental C:/Users/rafcal0v/riscv-steel-tests/hello-world/cmod-a7/cmod-a7.srcs/utils_1/imports/synth_1/hello_world_cmod_a7.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

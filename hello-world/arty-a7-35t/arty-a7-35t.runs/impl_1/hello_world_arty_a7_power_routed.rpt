@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date             : Sat Dec 16 22:10:25 2023
+| Date             : Mon Jan  1 22:19:27 2024
 | Host             : CAK-M3NSK32-556 running 64-bit major release  (build 9200)
 | Command          : report_power -file hello_world_arty_a7_power_routed.rpt -pb hello_world_arty_a7_power_summary_routed.pb -rpx hello_world_arty_a7_power_routed.rpx
 | Design           : hello_world_arty_a7
@@ -30,11 +30,11 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.070        |
+| Total On-Chip Power (W)  | 0.066        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.008        |
-| Device Static (W)        | 0.062        |
+| Device Static (W)        | 0.059        |
 | Effective TJA (C/W)      | 4.8          |
 | Max Ambient (C)          | 99.7         |
 | Junction Temperature (C) | 25.3         |
@@ -53,17 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.003 |        4 |       --- |             --- |
-| Slice Logic    |    <0.001 |     4220 |       --- |             --- |
-|   LUT as Logic |    <0.001 |     2030 |     20800 |            9.76 |
+| Slice Logic    |     0.001 |     4243 |       --- |             --- |
+|   LUT as Logic |    <0.001 |     2047 |     20800 |            9.84 |
 |   CARRY4       |    <0.001 |      115 |      8150 |            1.41 |
-|   Register     |    <0.001 |     1535 |     41600 |            3.69 |
+|   Register     |    <0.001 |     1537 |     41600 |            3.69 |
 |   F7/F8 Muxes  |    <0.001 |      319 |     32600 |            0.98 |
 |   Others       |     0.000 |       10 |       --- |             --- |
-| Signals        |     0.002 |     3357 |       --- |             --- |
+| Signals        |     0.002 |     3381 |       --- |             --- |
 | Block RAM      |     0.002 |        2 |        50 |            4.00 |
-| I/O            |    <0.001 |        4 |       210 |            1.90 |
-| Static Power   |     0.062 |          |           |                 |
-| Total          |     0.070 |          |           |                 |
+| I/O            |    <0.001 |        5 |       210 |            2.38 |
+| Static Power   |     0.059 |          |           |                 |
+| Total          |     0.066 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Vccint    |       0.950 |     0.014 |       0.008 |      0.006 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.011 |       0.000 |      0.011 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -147,7 +147,7 @@ Table of Contents
 |   rvsteel_soc_instance    |     0.007 |
 |     ram_instance          |     0.002 |
 |     rvsteel_core_instance |     0.004 |
-|     system_bus_instance   |     0.001 |
+|     system_bus_instance   |     0.002 |
 +---------------------------+-----------+
 
 

@@ -119,6 +119,11 @@ set_msg_config  -id {Synth 8-7080}  -suppress
 set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/software/build/hello-world.hex'.}}  -suppress 
 set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hardware/rvsteel-core.v'.}}  -suppress 
 set_msg_config  -id {Board 49-26}  -suppress 
+set_msg_config  -id {Project 1-19}  -string {{CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hello-world/demo-software/build/hello-world.hex'.}}  -suppress 
+set_msg_config  -id {Netlist 29-101}  -suppress 
+set_msg_config  -id {Vivado 12-1017}  -suppress 
+set_msg_config  -id {Common 17-180}  -suppress 
+set_msg_config  -id {filemgmt 56-199}  -suppress 
 set_msg_config  -id {Power 33-332}  -suppress 
 set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hello-world\arty-a7\hello-world-arty-a7.v:]}}  -suppress 
 set_msg_config  -id {filemgmt 56-199}  -string {{WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\rafcal0v\riscv-steel-tests\riscv-steel\hardware\ram.v:]}}  -suppress 
@@ -135,6 +140,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 4
+  set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 16  }
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a100ticsg324-1L
@@ -150,7 +156,7 @@ OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet C:/Users/rafcal0v/riscv-steel-tests/hello-world/arty-a7-100t/arty-a7-100t.runs/synth_1/hello_world_arty_a7.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc C:/Users/rafcal0v/riscv-steel-tests/hello-world/arty-a7-100t/arty-a7-100t.srcs/constrs_1/new/hello-world-arty-a7-100t-constraints.xdc
+  read_xdc C:/Users/rafcal0v/riscv-steel-tests/riscv-steel/hello-world/arty-a7/hello-world-arty-a7-100t-constraints.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }

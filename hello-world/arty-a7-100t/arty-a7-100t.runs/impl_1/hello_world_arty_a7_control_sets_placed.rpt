@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Sat Dec 16 22:18:39 2023
+| Date         : Mon Jan  1 22:24:52 2024
 | Host         : CAK-M3NSK32-556 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file hello_world_arty_a7_control_sets_placed.rpt
 | Design       : hello_world_arty_a7
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |    51 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    41 |
+| Unused register locations in slices containing registers |    47 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -58,72 +58,72 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              17 |           12 |
+| No           | No                    | No                     |              19 |           13 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             144 |           52 |
+| No           | Yes                   | No                     |             144 |           50 |
 | Yes          | No                    | No                     |               9 |            3 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |            1365 |          656 |
+| Yes          | Yes                   | No                     |            1365 |          643 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+-------------------+-------------------------------------------------------------------------+-------------------------------------------------------------------+------------------+----------------+--------------+
-|    Clock Signal   |                              Enable Signal                              |                          Set/Reset Signal                         | Slice Load Count | Bel Load Count | Bels / Slice |
-+-------------------+-------------------------------------------------------------------------+-------------------------------------------------------------------+------------------+----------------+--------------+
-|  clock_IBUF_BUFG  |                                                                         |                                                                   |                1 |              1 |         1.00 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/rvsteel_core_instance/current_state0               | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                1 |              4 |         4.00 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/prev_read_request_reg_1[0]     | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                4 |              5 |         1.25 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/uart_instance/p_0_in                               | rvsteel_soc_instance/uart_instance/rx_register[7]_i_1_n_0         |                1 |              8 |         8.00 |
-|  clock_50mhz_BUFG |                                                                         | rvsteel_soc_instance/rvsteel_core_instance/SR[0]                  |                2 |              8 |         4.00 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/uart_instance/E[0]                                 | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                1 |              8 |         8.00 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/rvsteel_core_instance/tx_register                  |                                                                   |                3 |              9 |         3.00 |
-|  clock_50mhz_BUFG |                                                                         | rvsteel_soc_instance/rvsteel_core_instance/tx_register            |                4 |             13 |         3.25 |
-|  clock_50mhz_BUFG |                                                                         | rvsteel_soc_instance/uart_instance/rx_cycle_counter[0]_i_1_n_0    |                4 |             14 |         3.50 |
-|  clock_50mhz_BUFG |                                                                         |                                                                   |               11 |             16 |         1.45 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/prev_read_request_reg_1[0]     | rvsteel_soc_instance/rvsteel_core_instance/csr_mcause[30]_i_1_n_0 |               21 |             27 |         1.29 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/prev_read_request_reg[0]       | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             30 |         2.73 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/current_state_reg[3][0]        | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               14 |             31 |         2.21 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/prev_load_request_reg[0]       | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               21 |             31 |         1.48 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/prev_instruction_reg[7]_0[0]   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               15 |             32 |         2.13 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/prev_read_request_reg_0[0]     | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                8 |             32 |         4.00 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/prev_instruction_reg[7][0]     | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               19 |             32 |         1.68 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_34[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               10 |             32 |         3.20 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_56[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_50[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               17 |             32 |         1.88 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_57[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                9 |             32 |         3.56 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_59[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             32 |         2.91 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_40[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               23 |             32 |         1.39 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_60[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               12 |             32 |         2.67 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_48[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               17 |             32 |         1.88 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_58[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               14 |             32 |         2.29 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_61[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               20 |             32 |         1.60 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_52[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               17 |             32 |         1.88 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_41[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               18 |             32 |         1.78 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_44[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_38[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               14 |             32 |         2.29 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_46[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             32 |         2.91 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_39[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               21 |             32 |         1.52 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_43[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               14 |             32 |         2.29 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_35[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             32 |         2.91 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_49[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               16 |             32 |         2.00 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_62[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               22 |             32 |         1.45 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_47[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               12 |             32 |         2.67 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_51[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               14 |             32 |         2.29 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_53[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               20 |             32 |         1.60 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_42[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               21 |             32 |         1.52 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_54[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               21 |             32 |         1.52 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_36[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_45[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               15 |             32 |         2.13 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_55[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               11 |             32 |         2.91 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/reset_reg_reg                  | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               24 |             32 |         1.33 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/rvsteel_core_instance/csr_minstret[31]_i_1_n_0     | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |                8 |             32 |         4.00 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/current_state_reg[3]_0[0]      | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               16 |             32 |         2.00 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_37[0] | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               13 |             32 |         2.46 |
-|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/clock_enable                   | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               49 |            101 |         2.06 |
-|  clock_50mhz_BUFG |                                                                         | rvsteel_soc_instance/rvsteel_core_instance/reset_internal         |               42 |            109 |         2.60 |
-+-------------------+-------------------------------------------------------------------------+-------------------------------------------------------------------+------------------+----------------+--------------+
++-------------------+-------------------------------------------------------------------------+------------------------------------------------------------------------+------------------+----------------+--------------+
+|    Clock Signal   |                              Enable Signal                              |                            Set/Reset Signal                            | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------+-------------------------------------------------------------------------+------------------------------------------------------------------------+------------------+----------------+--------------+
+|  clock_IBUF_BUFG  |                                                                         |                                                                        |                1 |              1 |         1.00 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/rvsteel_core_instance/current_state0               | rvsteel_soc_instance/system_bus_instance/SR[0]                         |                1 |              4 |         4.00 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/rvsteel_core_instance/csr_mcause[31]_i_1_n_0       | rvsteel_soc_instance/system_bus_instance/SR[0]                         |                3 |              5 |         1.67 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/uart_instance/p_0_in                               | rvsteel_soc_instance/uart_instance/rx_register[7]_i_1_n_0              |                2 |              8 |         4.00 |
+|  clock_50mhz_BUFG |                                                                         | rvsteel_soc_instance/rvsteel_core_instance/prev_rw_address_reg[1]_2[0] |                4 |              8 |         2.00 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/uart_instance/rx_bit_counter_reg[3]_0[0]           | rvsteel_soc_instance/system_bus_instance/SR[0]                         |                2 |              8 |         4.00 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/rvsteel_core_instance/prev_rw_address_reg[1]_1[0]  |                                                                        |                3 |              9 |         3.00 |
+|  clock_50mhz_BUFG |                                                                         | rvsteel_soc_instance/rvsteel_core_instance/prev_rw_address_reg[1]_1[0] |                4 |             13 |         3.25 |
+|  clock_50mhz_BUFG |                                                                         | rvsteel_soc_instance/uart_instance/rx_cycle_counter[0]_i_1_n_0         |                4 |             14 |         3.50 |
+|  clock_50mhz_BUFG |                                                                         |                                                                        |               12 |             18 |         1.50 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/rvsteel_core_instance/csr_mcause[31]_i_1_n_0       | rvsteel_soc_instance/rvsteel_core_instance/csr_mcause[30]_i_1_n_0      |               20 |             27 |         1.35 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/halt_debounced_reg[0]          | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               11 |             30 |         2.73 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/prev_load_request_reg[0]       | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               18 |             31 |         1.72 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/current_state_reg[3][0]        | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               11 |             31 |         2.82 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/rvsteel_core_instance/csr_mscratch0                | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               15 |             32 |         2.13 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/reset_debounced_reg            | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               20 |             32 |         1.60 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/prev_instruction_reg[7]_0[0]   | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               17 |             32 |         1.88 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/prev_instruction_reg[7][0]     | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               11 |             32 |         2.91 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_36[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               10 |             32 |         3.20 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_39[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               17 |             32 |         1.88 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_40[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               18 |             32 |         1.78 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_41[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               20 |             32 |         1.60 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_42[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               20 |             32 |         1.60 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_43[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               16 |             32 |         2.00 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_37[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               13 |             32 |         2.46 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_38[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               14 |             32 |         2.29 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_44[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               18 |             32 |         1.78 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_45[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               13 |             32 |         2.46 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_47[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               11 |             32 |         2.91 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_48[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               14 |             32 |         2.29 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_49[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               15 |             32 |         2.13 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_46[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               14 |             32 |         2.29 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_50[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               16 |             32 |         2.00 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_51[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               12 |             32 |         2.67 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_64[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               17 |             32 |         1.88 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_54[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               16 |             32 |         2.00 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_60[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               13 |             32 |         2.46 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_62[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               14 |             32 |         2.29 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_55[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               20 |             32 |         1.60 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_61[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               16 |             32 |         2.00 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_58[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |                7 |             32 |         4.57 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_52[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               15 |             32 |         2.13 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_59[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               21 |             32 |         1.52 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_57[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               12 |             32 |         2.67 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_53[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               13 |             32 |         2.46 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_56[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               19 |             32 |         1.68 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/rvsteel_core_instance/csr_minstret[31]_i_1_n_0     | rvsteel_soc_instance/system_bus_instance/SR[0]                         |                8 |             32 |         4.00 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/rvsteel_core_instance/csr_minstret[63]_i_1_n_0     | rvsteel_soc_instance/system_bus_instance/SR[0]                         |                8 |             32 |         4.00 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/system_bus_instance/selected_response_reg[2]_63[0] | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               20 |             32 |         1.60 |
+|  clock_50mhz_BUFG | rvsteel_soc_instance/rvsteel_core_instance/clock_enable                 | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               52 |            101 |         1.94 |
+|  clock_50mhz_BUFG |                                                                         | rvsteel_soc_instance/system_bus_instance/SR[0]                         |               38 |            109 |         2.87 |
++-------------------+-------------------------------------------------------------------------+------------------------------------------------------------------------+------------------+----------------+--------------+
 
 
